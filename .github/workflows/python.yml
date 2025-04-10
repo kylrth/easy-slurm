@@ -1,0 +1,57 @@
+name: Python lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: set up Python
+      uses: actions/setup-python@v5
+      id: setup-python
+      with:
+        python-version: '3.11'
+
+    - name: get exact Python version  # for busting the venv cache
+      run: |
+        echo "${{ steps.setup-python.outputs.python-version }}" > ".installed-python"
+    - name: cache venv
+      uses: actions/cache@v4
+      id: cache-venv
+      with:
+        key: "venv-${{ hashFiles('.installed-python') }}"
+        path: |
+          .venv/
+    - name: create venv
+      if: "steps.cache-venv.outputs.cache-hit == false"
+      run: |
+        python -m venv .venv
+        .venv/bin/pip install --upgrade pip setuptools wheel
+        .venv/bin/pip install black ruff
+
+    - name: restore linter caches
+      uses: actions/cache/restore@v4
+      with:
+        path: |
+          .ruff_cache
+        # We want the latest cache to hit and be updated every time.
+        key: lint-test-${{ github.run_id }}
+        restore-keys: lint-test
+    - name: lint
+      run: |
+        .venv/bin/black --check .
+        .venv/bin/ruff check .
+    - name: save linter caches
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: |
+          .ruff_cache
+          .pytest_cache
+        key: lint-test-${{ github.run_id }}
