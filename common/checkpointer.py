@@ -15,7 +15,7 @@ class Checkpointer:
 
     latest: int  # number of completed epochs
 
-    def __init__(self, root: Path, keep: int = 5):
+    def __init__(self, root: Path, keep: int = 1):
         self.root = root
         self.keep = keep
 
