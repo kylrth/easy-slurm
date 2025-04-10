@@ -30,11 +30,11 @@ if TYPE_CHECKING:
     from wilds.datasets.wilds_dataset import WILDSDataset
 
 
-# We use the simple-parsing library to organize experiment configurations. This means we define all
-# config options in classes, and we can pass those classes to the simple-parsing ArgumentParser.
-# What we do instead in this script is define a TrainConfig class that completely defines an
-# experiment, and then we define an array of experiments each of which has an associated TrainConfig
-# object.
+# In this script we define a TrainConfig class that completely defines an experiment, and then we
+# create an array of experiments each of which has an associated TrainConfig object. Then run.sh
+# just has to pass an array ID to choose which experiment to run. The Dirs class is used to
+# configure the folders where inputs and outputs go, and these values are read from this script's
+# command-line arguments using the simple-parsing library.
 
 
 @dataclass
@@ -273,7 +273,9 @@ if args.exp == -1:
         print(f"{i}: {e.id}", file=sys.stdout)
     sys.exit(2)
 
-# run the experiment!
 conf: TrainConfig = exps[args.exp]
+print(f"running experiment: {conf.id}", file=sys.stderr)
+
+# run the experiment!
 dirs: Dirs = args.directories
 conf.train(dirs)
