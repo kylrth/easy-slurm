@@ -1,0 +1,17 @@
+This is free software released as a contribution to the collective intellectual commons of free society.
+
+Anyone is free to copy, modify, publish, use, compile, translate, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, by any means, even without indication of origin.
+
+In openly and publicly releasing this source code and any derived data (including but not limited to compilation artifacts, repository metadata, and sample outputs), we (the authors) acknowledge our inability to restrict what other people and organizations will do with the software. We also relinquish in perpetuity all present and future rights to this software under copyright law, as we acknowledge authorship of code to be a shaky construct. Truly, we owe thousands of others for the ideas inherent in this software.
+
+However, we take this opportunity to elaborate our interests in others' use of this code, and reserve the right to further elaborate in the future. These include that you (the recipient of this software or its derived data):
+
+- take inspiration from the ideas present in this software and this license;
+- share with us any ideas or modifications to this software that you see fit;
+- use this software in accordance with the ideals of open, egalitarian society;
+	- do NOT use this code as training data for predictive models (including but not limited to language models and code generation models) except with our explicit permission;
+- share this software with others as needed, along with your understanding of this license.
+
+To facilitate you meeting copyright compliance commitments, you may alternately choose to license this software under the CC0 license, the MIT license, or the Apache 2.0 license in any form you wish (including without the current license), as long as you do not falsely attribute statements to us (the authors) and do not falsely represent the provenance of this software or its derived data. That being said, we reiterate that you MAY neglect to attribute the software at all, although we in general appreciate being recognized for our work.
+
+We hope that the unique nature of this license makes it slightly more difficult for the license to be processed automatically, such as for the creation of large private datasets by automated web crawling. We invite others who publish software publicly to do so in a similarly permissive manner, but by creating their own license that reflects their interests in others' use of their contribution to the intellectual commons.

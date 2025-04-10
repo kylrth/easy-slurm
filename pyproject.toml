@@ -1,0 +1,68 @@
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+
+exclude = [".git", ".venv", "*.ipynb"]
+
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F",
+    "I",
+    "N",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "ARG",
+    "BLE",
+    "DJ",
+    "DTZ",
+    "EM",
+    "ERA",
+    "EXE",
+    "ICN",
+    "ISC",
+    "NPY",
+    "PD",
+    "PGH",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+ignore = [
+    "EM101",
+    "EM102",
+    "PLC1901",
+    "PLR0913",
+    "PLR2004",
+    "PLW2901",
+    "PT009",
+    "RET504",
+    "RUF009",  # simple-parsing usage breaks this
+    "S301",    # we trust our own pickle files
+    "S311",    # we're not doing any cryptography
+    "S603",
+    "S607",
+    "TRY003",
+]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2

@@ -1,0 +1,9 @@
+# These are the Python dependencies cached on the cluster. Record here the exact package versions
+# downloaded, for future reference. When adding a new package that is available on the cluster, use
+# `pip install --no-index [dep]` and note down here the exact package version so that this same
+# version is reused in your compute jobs.
+scikit-learn==1.5.2  # provided by the scipy-stack module but still needs to be "installed" in the virtual environment
+torch==2.6.0
+torchvision==0.21.0
+tqdm==4.67.1
+typing-extensions==4.12.2  # this is a transitive dependency of the wilds package, but available on the cluster, so we install it here
